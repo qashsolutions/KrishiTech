@@ -32,3 +32,4 @@ One file per architectural decision. Docs describe the current state; ADRs hold 
 |---|---|---|---|
 | 0001 | [Usage context](0001-usage-context.md) | accepted | 2026-08-22 |
 | 0002 | [Farmer-facing English toggle](0002-farmer-facing-english-toggle.md) | accepted | 2026-08-22 |
+| 0003 | [Confidence thresholds](0003-confidence-thresholds.md) | proposed | 2026-08-22 |

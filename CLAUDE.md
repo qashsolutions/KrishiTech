@@ -53,6 +53,7 @@ No doc covers it? Write an ADR in `docs/adr/` before writing code.
 8. Confidence comes from `skills/confidence`, never computed inline.
 9. No crop, language, or region is hardcoded — it comes from a pack. Brands are never hardcoded and never in packs; they come from `input-match`.
 10. Never edit a golden set to make a test pass.
+11. Never present your own synthesis as established fact. Any claim in a doc that is not traceable to another doc, a pack reference, or a cited source must carry a provenance label — see the writing rules in `docs/README.md`.
 
 ---
 
@@ -64,4 +65,4 @@ No doc covers it? Write an ADR in `docs/adr/` before writing code.
 - Any agronomic claim not backed by a pack reference
 - A new dependency, provider, or third-party service
 - Any change to the safeguarding protocol
-- Merging two agents, or giving one agent a second responsibility
+- Merging two agents, or giving one agent a second responsibility (collapsing diagnosis into treatment is never permitted — see `agents/CLAUDE.md`)

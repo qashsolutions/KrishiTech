@@ -45,7 +45,7 @@ Worked reference: agents/diagnosis/AGENT.md
 
 ## 6. Confidence
 
-<!-- Scored by skills/confidence ONLY. Never compute inline. Bands are global: high >=0.75, medium 0.45-0.74, low <0.45 -->
+<!-- Scored by skills/confidence ONLY. Never compute inline. Bands are global, set in docs/adr/0003-confidence-thresholds.md — point there, never restate the numbers -->
 
 **Raises:**
 **Lowers:**

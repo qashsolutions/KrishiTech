@@ -28,7 +28,7 @@ if callers routinely need reference.md, this file is inadequate.
 |---|---|---|---|---|
 | | | | | |
 
-<!-- No hardcoded crop, language, region, or brand. Those arrive as parameters from packs. -->
+<!-- No hardcoded crop, language, region, or brand. Crop, language, and region arrive as parameters from packs. Brands are never in packs; they come from `input-match`. -->
 
 ## 4. Output
 

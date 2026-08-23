@@ -23,13 +23,9 @@ Extracting "upward leaf curl, silvering" is a skill. Concluding "this is thrips"
 - No provider SDK calls. Everything goes through `backend/gateways/`.
 - Prefer computation over model calls. A deterministic skill is a better skill.
 - Add the row to `skills/README.md` §2 in the same PR, with phase and safety flag.
+- Uncertainty and safety phrasing is human-authored per language — owned by `packs/CLAUDE.md`.
 
 ## Safety-critical skills
 
-`content-safety`, `dose-math`, `readback`, `vision` (domain gate), `retrieval`, `uncertainty`.
-Changes require a red-team eval set, two-person review, and a kill switch.
+Safety-critical skills are flagged in `skills/README.md` §2. Changes require a red-team eval set, two-person review, and a kill switch.
 
-## Never
-
-- Machine-translate uncertainty or safety phrasing. Human-authored per language, always.
-- Return a plausible fabrication instead of an error.

@@ -5,9 +5,13 @@
 
 ## Context
 
+> Founder-set. Field knowledge of the founder's 200-farmer network.
+
 Many farmers read basic English. Usage is largely at home, where a literate family member may read the screen (`0001-usage-context.md`). `mode="translate"` is one parameter on the same audio, so the cost is near zero.
 
 ## Decision
+
+> Founder-set. "Mixed-language audio would confuse both" is the founders' judgment, not a tested finding.
 
 The English transcript toggle is available to all roles, including farmers. It is display-only: all speech stays in the farmer's chosen language, always — the toggle exists so a literate person can read the screen; the audio is for the farmer. Mixed-language audio would confuse both. This is a deliberate design choice, not a technical limitation.
 

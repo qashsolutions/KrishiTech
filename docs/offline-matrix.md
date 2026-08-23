@@ -4,6 +4,8 @@ What works without a network, what degrades, and what fails. Binding on every sc
 
 **Network reality:** farmers are on intermittent 4G/LTE in fields, not Wi-Fi. Assume slow, lossy, and frequently interrupted — not absent. Design for *unreliable*, not *offline*.
 
+> Founder-set. Network assumptions here and under Sync triggers (intermittent 4G/LTE in fields, prepaid data) are field knowledge of the founder's 200-farmer network.
+
 ---
 
 ## Principles
@@ -34,6 +36,7 @@ What works without a network, what degrades, and what fails. Binding on every sc
 | Weather → action | ◐ | Last fetched forecast, with age stated aloud and on screen |
 | Capture photo (up to 3) | ✅ | Compressed and queued locally |
 | Record voice note | ✅ | Audio queued; STT runs on sync |
+| Transcript confirm (F-23a) | ✕ | STT runs on sync; transcript not available offline |
 | Submit problem report | ◐ | Queued; farmer told "will be sent when signal returns" |
 | Receive diagnosis | ✕ | Server-side; delivered on sync via notification |
 | View past recommendations | ✅ | Cached, including thumbnails |

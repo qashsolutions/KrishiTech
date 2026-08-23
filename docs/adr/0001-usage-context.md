@@ -21,4 +21,4 @@ Two-location flow — capture at the farm on poor connectivity, consumption at h
 
 ## Alternatives considered
 
-None recorded.
+- Field-only usage: assume all interaction happens at the farm on poor connectivity, with the farmer alone. Rejected — does not match the founder's field knowledge, and it would have produced an over-terse UI and scoped out the English toggle.

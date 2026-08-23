@@ -2,6 +2,7 @@
 
 > Worked exemplar. Every other `AGENT.md` copies this shape — same nine sections, same order.
 > Location in repo: `agents/diagnosis/AGENT.md`
+> Example content (thrips vs mite, symptom lists, IDs) is pending the chilli pack; the pack is authoritative once written.
 
 ---
 
@@ -74,9 +75,9 @@ Produced by `skills/confidence` only. Never computed inline.
 
 **Lowers:** single generic symptom; poor image; symptom set spanning two categories; declared look-alike not excludable; problem out of season for the region.
 
-**Bands:** `high ≥ 0.75` · `medium 0.45–0.74` · `low < 0.45`. Global thresholds — this agent does not set its own.
+**Bands:** global thresholds, set in `docs/adr/0003-confidence-thresholds.md` — this agent does not set its own.
 
-**Forced `low`, regardless of score:** top-2 scores within 0.10 **and** they are a declared confusion pair. Correct behaviour here is to say "it is one of these two, and here is how to tell them apart" — not to pick.
+**Forced `low`, regardless of score:** top-2 scores within the margin set in ADR 0003 **and** they are a declared confusion pair. Correct behaviour here is to say "it is one of these two, and here is how to tell them apart" — not to pick.
 
 **Valid `needs[]` values:** photo of leaf underside · photo of whole plant · close-up of the affected part · time since symptoms appeared · spread pattern across the field · recent spray history.
 
@@ -99,14 +100,14 @@ Forces a human when any of:
 - Band is `low`
 - Top-2 within margin on a declared confusion pair
 - Symptoms match a quarantine or notifiable pest in the region pack
-- Field has had ≥2 prior diagnoses in 21 days with outcome `worse`
+- Repeat prior diagnoses with outcome `worse` in this field within the recurrence window set in ADR 0003
 - Farmer explicitly asks for a person
 
 Escalation is a hand-off, not a dead end: the farmer is told a person is looking, and gets an ETA.
 
 ## 9. Evaluation
 
-- **Golden set:** `evals/golden/diagnosis/<crop_id>/` — minimum 150 labelled cases per crop, sourced from real field photos, labelled by a named agronomist, with inter-rater checks on the confusion pairs.
+- **Golden set:** `evals/golden/diagnosis/<crop_id>/` — minimum size per crop set in ADR 0003, sourced from real field photos, labelled by a named agronomist, with inter-rater checks on the confusion pairs.
 - **Metrics:** top-1 accuracy · top-3 accuracy · confusion-pair separation rate · calibration (does 0.7 mean 70%?) · false-confident rate (**the metric that matters most**).
 - **Regression gate:** no drop in top-3 accuracy; **zero increase in false-confident rate** — a hard block on merge.
 - **Slices:** per crop, per language of symptom text, per image quality tier, per region.

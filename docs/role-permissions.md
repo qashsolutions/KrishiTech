@@ -10,7 +10,7 @@ What farmer/dealer/FPO/expert/admin can read and write. Consent defaults. Cross-
 
 Informal assistance (`docs/navigation-ia.md`, F-04 note; `docs/adr/0001-usage-context.md`) makes a bystander reading the screen normal.
 
-**Require re-authentication (biometric or PIN) before opening, even in an active session:**
+**Require re-authentication (biometric, or device credential fallback) before opening, even in an active session:**
 - S-27 Data & privacy (consent toggles)
 - S-29 Export my data
 - S-30 Delete my account

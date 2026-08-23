@@ -20,6 +20,8 @@ Languages: te-IN, ta-IN, kn-IN, mr-IN, hi-IN. English: pre-login UI default; pos
 
 ## 2. Navigation model
 
+> Founder-set. Interaction assumptions in this section (hold-vs-tap split, dealers prefer typing) are field knowledge of the founder's 200-farmer network.
+
 ### Farmer — bottom nav with docked mic
 
 ```
@@ -99,8 +101,9 @@ Literate, data-dense users. Voice available but not primary; typing is faster fo
 |---|---|---|---|---|
 | F-20 | Guided capture — up to 3 images: whole plant → affected part → leaf underside, each prompted aloud | vision | ✅ queued | P1 |
 | F-21 | Image review — retake or drop before submit | vision | ✅ | P1 |
-| F-22 | Voice description — optional, added to the same case; inline English transcript toggle | speech | ✅ queued | P1 |
+| F-22 | Voice description — optional, added to the same case. Transcript renders in codemix mode; re-record is the primary correction; inline English transcript toggle | speech | ✅ queued | P1 |
 | F-23 | Submitted / queued — "saved, will send when signal returns" | — | ✅ | P1 |
+| F-23a | Transcript confirm — shows the codemix transcript, offers re-record, speaks the interpretation back for confirmation; inline English transcript toggle | speech, clarification | ✕ | P1 |
 | F-24 | Clarification — exactly one question at a time, spoken | clarification | ✕ | P1 |
 | F-25 | Diagnosis card — what, why, when, dose, precautions, alternatives; spoken and shown | diagnosis, treatment, agronomic-safety | ✕ (cached after) | P1 |
 | F-26 | Confusion-pair card — "it is one of these two, here is how to tell" | diagnosis | ✕ | P1 |
@@ -183,7 +186,7 @@ Dealers see aggregate demand plus consented leads only. Never another farmer's r
 | S-32 | About — version, licences | — | ✅ | P1 |
 | S-40 | **Feedback sheet** — reachable from every screen; voice or text; auto-attaches screen, case ID, app version, device, language | support | ✅ queued | P1 |
 | S-41 | Help — how to use, short spoken clips | — | ✅ | P1 |
-| S-42 | **Support screen** — the safeguarding surface. Calm, unbranded, no upsell, no commercial content. Tele-MANAS 14416 / 1800-89-14416, shown and spoken. Never visible to dealer or FPO. Must never auto-open, never appear in case history, and never be reachable by accidental tap — a bystander reading the screen must not stumble into it. | safeguarding | ✅ | P1 |
+| S-42 | **Support screen** — the safeguarding surface. Helpline, surface rules and constraints are owned by `docs/safeguarding-protocol.md` (S-42 section). Never visible to dealer or FPO. | safeguarding | ✅ | P1 |
 
 S-42 is specified in `docs/safeguarding-protocol.md` and must not be designed by engineering alone.
 
@@ -217,11 +220,13 @@ Every state has a spoken form. English-only failure text is a bug.
 - Barge-in always allowed.
 - Quiet hours respected for all proactive voice and notifications.
 - Long-press any nav item, heading, or image tile to hear it.
-- **English transcript toggle** — inline on every transcript view (F-22, F-40, F-41); default state set in S-21, persisted per user, default off. Display-only — behaviour and scope in `docs/voice-design.md`, reasoning in `docs/adr/0002-farmer-facing-english-toggle.md`.
+- **English transcript toggle** — inline on every transcript view (F-22, F-23a, F-40, F-41); default state set in S-21, persisted per user, default off. Display-only — behaviour and scope in `docs/voice-design.md`, reasoning in `docs/adr/0002-farmer-facing-english-toggle.md`.
 
 ---
 
 ## 10. Accessibility & device
+
+> Unverified. The `minSdk 26` floor. TODO: confirm against India Android version distribution before locking the floor; owner `docs/device-constraints.md`.
 
 - Minimum touch target 56dp for primary actions, 72dp for the mic.
 - Must render correctly at the largest system font scale.
@@ -237,11 +242,11 @@ Every state has a spoken form. English-only failure text is a bug.
 | Role | P1 | P1.5 | P2 | Total |
 |---|---|---|---|---|
 | Shared / onboarding | 12 | 0 | 0 | 12 |
-| Farmer | 24 | 1 | 0 | 25 |
+| Farmer | 25 | 1 | 0 | 26 |
 | Dealer | 0 | 7 | 1 | 8 |
 | FPO | 2 | 2 | 3 | 7 |
 | Settings / support | 15 | 0 | 0 | 15 |
-| **Total** | **53** | **10** | **4** | **67** |
+| **Total** | **54** | **10** | **4** | **68** |
 
 Seed production module (P2) is not counted — it is a separate surface, specified later. The farm graph schema must be able to represent a grower contract so it is not blocked.
 
@@ -249,8 +254,9 @@ Seed production module (P2) is not counted — it is a separate surface, specifi
 
 ## 12. Open
 
+Full list: `docs/README.md`.
+
 | Question | Blocks |
 |---|---|
-| Does English need TTS, or is it screen-only pre-login? Bulbul covers 11 Indian languages; English is not among them | S-01 |
 | Multi-role users — one person who is both farmer and FPO office-bearer. Switcher or separate logins? | S-05 |
 | Dealer counter mode — does the farmer consent per-lookup, or once at onboarding? | D-05, `role-permissions.md` |

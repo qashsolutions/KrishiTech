@@ -10,9 +10,9 @@
 |---|---|
 | Platform | Single Android APK. No iOS. Role resolved at login. |
 | Stack | Kotlin + Jetpack Compose |
-| SDK | `targetSdk 36` (Android 16) — mandatory for Play submission from 31 Aug 2026. `minSdk 26` recommended for reach |
-| Play compliance | Absolute. Data Safety declaration must match the pipeline exactly. Account-deletion URL required |
-| Payments | **Google Play Billing** (Billing Library v8+). UPI available as a payment method inside it. No direct UPI collection in-app |
+| SDK | `targetSdk 36` (Android 16) — mandatory for Play submission from 31 Aug 2026 ([Play target API requirements](https://developer.android.com/google/play/requirements/target-sdk)). `minSdk 26` recommended for reach — floor unverified, TODO in `docs/device-constraints.md` |
+| Play compliance | Absolute. Data Safety declaration must match the pipeline exactly. Account-deletion URL required ([policy](https://support.google.com/googleplay/android-developer/answer/13327111)) |
+| Payments | **Google Play Billing** (Billing Library v8+). UPI available as a payment method inside it. No direct UPI collection in-app ([Play payments policy](https://support.google.com/googleplay/android-developer/answer/9858738)) |
 | Identity | Phone number = person. Number-change flow re-verifies and carries history. Dormant-account expiry rule needed |
 | Languages | te-IN, ta-IN, kn-IN, mr-IN, hi-IN — all P1. English: pre-login UI default; post-login available as the transcript translate-mode toggle for all roles. |
 | First states | Andhra/Telangana, Tamil Nadu, Karnataka, Maharashtra, Hindi belt |
@@ -42,7 +42,7 @@ agri-os/
 │   ├── design.md                      # P1  Master doc; links everything below
 │   ├── architecture.md                # P1  Five layers, module map, scalability levers
 │   ├── agent-contracts.md             # P1  ✅ written — uniform I/O, manifest, nine-section rule, agent catalog
-│   ├── navigation-ia.md               # P1  ✅ written — 67 screens across three roles, states, backing agents
+│   ├── navigation-ia.md               # P1  ✅ written — 68 screens across three roles, states, backing agents
 │   ├── offline-matrix.md              # P1  ✅ written — capability matrix, outbox, conflicts, media queue
 │   ├── data-model.md                  # P1  Farm graph entities, event log, role projections, outcome ledger
 │   ├── identity.md                    # P1  Phone-as-person, number change, shared devices, dormancy
@@ -62,8 +62,8 @@ agri-os/
 ├── skills/                            # Shared capabilities. Agent Skills format: SKILL.md needs YAML frontmatter
 │   ├── README.md                      # P1  Master index + invariants (renamed from SKILL.md — not a valid skill itself)
 │   ├── CLAUDE.md                      # P1  Local rules for this folder
-│   ├── _template/                     # P1  Scaffold: frontmatter, nine sections, references/, src/, tests/
-│   ├── speech/                        # P1  Sarvam STT (Saaras) + TTS (Bulbul), code-mix tolerant
+│   ├── _template/                     # P1  Scaffold: frontmatter, nine sections, references/, prompts/, src/, tests/
+│   ├── speech/                        # P1  STT + TTS via the Sarvam gateway, code-mix tolerant
 │   ├── translate/                     # P1  Canonical-language normalisation and render-back
 │   ├── vision/                        # P1  Crop/pest analysis, quality check, domain gate
 │   ├── retrieval/                     # P1  RAG over packs, POP, label data, with citation
@@ -115,7 +115,7 @@ agri-os/
 │   ├── languages/
 │   │   ├── te-IN/  ta-IN/  kn-IN/     # P1  UI strings, agro glossary, profanity lexicon, TTS voice
 │   │   ├── mr-IN/  hi-IN/             # P1
-│   │   └── en-IN/                     # P1  Pre-login UI default; post-login transcript translate-mode target. UI strings + agro glossary for translate-mode rendering; TTS coverage open
+│   │   └── en-IN/                     # P1  Pre-login UI default; post-login transcript translate-mode target. UI strings + agro glossary for translate-mode rendering
 │   └── regions/                       # P1  District variants, local units, seasonal calendars — 5 states
 │
 ├── backend/
@@ -123,6 +123,7 @@ agri-os/
 │   ├── api/                           # P1  Role-scoped public API
 │   ├── graph/                         # P1  Entities, append-only event log, projections, outcome ledger
 │   ├── orchestration/                 # P1  Agent registry, planner, budget/timeout
+│   │   └── schema/                    # P1  manifest.schema.json — validates every agents/<id>/manifest.yaml
 │   ├── gateways/                      # P1  Provider adapters: sarvam, gemini, weather — swappable
 │   ├── services/
 │   │   ├── auth/                      # P1  OTP, session, biometric binding, number-change flow
@@ -163,6 +164,7 @@ agri-os/
 │   └── feature-fpo/                   # P1  Member list + cluster alerts (read-only); full dashboard P1.5+
 │
 ├── consoles/                          # Web
+│   ├── CLAUDE.md                      # P1  Local rules
 │   ├── expert/                        # P1  Escalation queue, case bundle, approve/edit, SLA — 10 staff
 │   ├── authoring/                     # P1  Crop and language pack CMS with review and versioning
 │   └── admin/                         # P1  Agent health, evals, cost, quarantine queue, kill switches
@@ -213,6 +215,7 @@ Prose does not enforce; these do.
 - Pack change without re-running dependent agent evals → fail
 - Any increase in false-confident rate → **hard block**
 - `targetSdk` below 36 → fail
+- Model ID string (`saaras:*`, `bulbul:*`) outside `backend/gateways/` or `skills/speech/` → fail
 
 ---
 
@@ -230,14 +233,16 @@ Prose does not enforce; these do.
 | Feature flags | Prompt or pack change ships without a Play release |
 | Versioned agents | v2 shadows v1 on live traffic |
 | Kill switches | Any agent disabled independently, degraded path defined |
+| Provider names contained | Sarvam model IDs appear in exactly two files |
 
 ---
 
 ## 6. Still open
 
+Canonical list: `docs/README.md`. Kept here for convenience.
+
 | Question | Blocks |
 |---|---|
-| English TTS — Bulbul covers 11 Indian languages, English not among them. Screen-only, or fallback voice? | S-01, `i18n.md` |
 | Multi-role users (farmer who is also an FPO office-bearer) — switcher or separate logins? | S-05, `identity.md` |
 | Dealer counter-mode consent — per lookup, or once at onboarding? | D-05, `role-permissions.md` |
 | Paid slot expiry — do purchased 500 slots expire? | `quota` service |

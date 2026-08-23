@@ -14,7 +14,7 @@ Binding on every skill. A skill violating any of these is broken, regardless of 
 1. **Stateless and side-effect free**, unless the skill's `SKILL.md` declares otherwise in a `Side effects` section.
 2. **Uniform return:** `{result, confidence, provenance, cost_ms, cost_units}`.
 3. **Leaves only.** No skill invokes an agent. No skill invokes another skill — if two skills need each other, the agent composes them.
-4. **No hardcoded crop, language, region, or brand.** Those arrive from packs, always as parameters.
+4. **No hardcoded crop, language, region, or brand.** Crop, language, and region arrive from packs, always as parameters. Brands are never in packs; they come from `input-match`.
 5. **No direct provider SDK calls.** Everything goes through `backend/gateways/`. Swapping Sarvam or Gemini must touch one folder.
 6. **Content safety is unconditional.** Every text entering or leaving the system passes `content-safety`. There is no bypass parameter, no trusted-caller exemption, no admin override.
 7. **Fail loud, not silent.** A skill that cannot do its job returns an error status. It never returns a plausible fabrication.
@@ -26,7 +26,7 @@ Binding on every skill. A skill violating any of these is broken, regardless of 
 
 | Skill | Phase | Does | Safety-critical | Model? |
 |---|---|---|---|---|
-| `speech` | P1 | STT and TTS via Sarvam; code-mix tolerant | — | Yes |
+| `speech` | P1 | STT and TTS via the Sarvam gateway. Code-mix tolerant. Model IDs and limits live in `skills/speech/reference.md` — not here. | — | Yes |
 | `translate` | P1 | Normalise to canonical language; render back to locale | — | Yes |
 | `vision` | P1 | Crop/pest image analysis, quality check, domain gate | Yes | Yes |
 | `retrieval` | P1 | RAG over packs, POP, label data, with citation | Yes | Hybrid |
@@ -90,9 +90,9 @@ Most skills need only the standard set. These need more:
 ### `speech/`
 | File | Purpose |
 |---|---|
-| `reference.md` | Sarvam model choice per use case, streaming vs batch, audio formats |
-| `voices.md` | Chosen Bulbul speaker and pace per language, with rationale |
-| `code-mixing.md` | Expected mixed-input patterns per language and how they are handled |
+| `reference.md` | Model IDs and versions, mode selection, streaming vs batch, audio formats, all vendor limits. THE source of truth for provider specifics. |
+| `voices.md` | Chosen speaker and pace per language, with rationale. |
+| `code-mixing.md` | Expected mixed-input patterns per language and handling. |
 
 ### `retrieval/`
 | File | Purpose |

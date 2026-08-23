@@ -161,7 +161,7 @@ Reasons: a wrong diagnosis cannot silently produce a confident dose; each is sep
 
 - No agent emits a dose that has not passed `agronomic-safety`.
 - No agent emits text that has not passed `content-safety`.
-- No agent hardcodes a crop, language, region, or brand. Those come from packs.
+- No agent hardcodes a crop, language, region, or brand. Packs supply crop, language, and region only. Brands are never in packs; they come from `input-match`.
 - No agent calls a provider SDK directly. All provider access goes through `backend/gateways/`.
 - Every agent ships with a kill switch and a defined degraded path.
 - Every agent version runs in shadow against the incumbent before promotion.

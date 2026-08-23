@@ -1,5 +1,5 @@
 # Capability declaration. The orchestrator selects agents by reading this —
-# never by a hardcoded call. Validated in CI against packs/schema/manifest.schema.json
+# never by a hardcoded call. Validated in CI against backend/orchestration/schema/manifest.schema.json
 
 id: <agent-id>                  # kebab-case, matches folder name
 version: 0.1.0                  # semver; bump on every change, log eval delta in CHANGELOG.md
@@ -18,7 +18,8 @@ latency_p95_ms: 0
 cost_estimate_units: 0
 model_tier: standard            # small | standard | large | none
 
-can_veto: false                 # true only for agronomic-safety and content-safety
+can_veto: false                 # true only for agronomic-safety
+# Content safety is enforced by the gate around every agent, not by an agent.
 writes_to_graph: false          # true only for context
 
 degraded_behavior: "<what it returns on partial input>"
