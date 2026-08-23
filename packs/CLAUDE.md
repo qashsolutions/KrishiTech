@@ -58,7 +58,7 @@ The same Telugu word differs between Telangana and coastal Andhra. That is a reg
 
 ## On any pack change
 
-Re-run evals for every agent listing that pack type in `requires_packs`. CI enforces this.
+Re-run evals for every agent listing that pack type in `requires_packs`. CI will enforce this via `make gate-evals` — not yet built. Until it is, re-running dependent evals after a pack change is a manual step and must be stated in the PR description.
 
 ## Never
 

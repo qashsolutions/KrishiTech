@@ -9,16 +9,70 @@ This file is a router, not a spec. Read the linked doc before doing the work.
 
 ## Commands
 
-<!-- PLACEHOLDER — replace with the real commands before first use. A wrong command here is worse than none. -->
+All commands run from the repo root. `make` is the single entry point — if a task is
+not a make target, it is not a standard task.
 
-```
-<setup>             install deps, seed local env
-<test>              unit + contract tests
-<eval AGENT=x>      run golden set for one agent
-<eval-all>          full eval suite (required before any agent merge)
-<lint>              schema + policy checks
-<android>           build debug APK
-```
+Targets marked `[not yet built]` do not exist yet. They are named so the gap is
+visible. Remove the marker as each lands; do not remove the target.
+
+### Setup
+
+    make setup              Install all toolchains: uv sync, gradle wrapper, hooks
+    make doctor             Verify local environment matches CI [not yet built]
+
+### Backend (Python 3.12, FastAPI — ADR 0004)
+
+    make api                Run the api service locally on :8080
+    make inference          Run the inference service locally on :8081
+    make api-test           pytest, api service only
+    make inference-test     pytest, inference service only
+
+### Android (Kotlin + Compose, targetSdk 36)
+
+    make android-build      Assemble debug APK
+    make android-test       Unit tests
+    make android-lint       Android lint + ktlint
+
+### Quality — run before every commit
+
+    make fmt                ruff format + ktlint format
+    make lint               ruff check + mypy strict + ktlint
+    make test               Every test suite
+    make check              fmt + lint + test. Run before every commit.
+
+### Packs
+
+    make pack-validate      Validate every pack against packs/schema/ [not yet built]
+    make pack-approver      Fail any pack without a recorded approver [not yet built]
+    make pack-diff          Show which agents a pack change affects [not yet built]
+
+### Agents and evals
+
+    make agent-validate     manifest.yaml schema + AGENT.md nine sections [not yet built]
+    make eval               Run every agent's golden set [not yet built]
+    make eval-agent AGENT=diagnosis
+                            Run one agent's golden set [not yet built]
+
+### CI gates — docs/project-structure.md section 4
+
+    make gate-manifest      manifest.yaml validates [not yet built]
+    make gate-sections      No AGENT.md missing a section or holding a placeholder [not yet built]
+    make gate-goldenset     No agent without a golden set [not yet built]
+    make gate-frontmatter   No SKILL.md without valid YAML frontmatter [not yet built]
+    make gate-gateways      No provider SDK import outside gateways/ [not yet built]
+    make gate-strings       No user-facing string outside a language pack [not yet built]
+    make gate-approver      No pack edit without a recorded approver [not yet built]
+    make gate-evals         No pack change without dependent evals re-run [not yet built]
+    make gate-confidence    Hard block on any rise in false-confident rate [not yet built]
+    make gate-sdk           Fail if targetSdk < 36 [not yet built]
+
+    make gates              Every gate above.
+    CI runs `make check` then `make gates` on every PR. Both must pass.
+
+### Deploy
+
+    make deploy-api         Cloud Run, asia-south1 [not yet built]
+    make deploy-inference   Cloud Run, asia-south1 [not yet built]
 
 ---
 
