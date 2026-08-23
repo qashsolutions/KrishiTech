@@ -1,0 +1,43 @@
+# macOS
+.DS_Store
+
+# CC backups
+*.bak
+*.backup
+*.orig
+*~
+
+# Secrets
+.env
+.env.local
+!.env.example
+*.keystore
+*.jks
+google-services.json
+service-account*.json
+
+# Android / Gradle
+.gradle/
+build/
+local.properties
+*.apk
+*.aab
+
+# Node / Python
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+# uv.lock is COMMITTED (per-service, reproducible installs) — never ignore it.
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Claude Code — per-developer, never committed
+.claude/settings.local.json

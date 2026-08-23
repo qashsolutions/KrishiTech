@@ -1,0 +1,46 @@
+[project]
+name = "krishitech-inference"
+version = "0.1.0"
+description = "KrishiTech inference service: image analysis (ADR 0004)."
+readme = "README.md"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "fastapi>=0.115",
+    "pydantic-settings>=2.5",
+    "uvicorn>=0.30",
+]
+
+[dependency-groups]
+dev = [
+    "httpx2>=2.12",
+    "mypy>=1.11",
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.uv]
+# A deployable service, not a library. Never installed as a package; run in place.
+package = false
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+src = ["."]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app", "pipeline"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+# pydantic plugin: knows BaseSettings fields are populated from the environment.
+plugins = ["pydantic.mypy"]
+warn_unreachable = true
+files = ["app", "pipeline", "tests"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
