@@ -20,7 +20,7 @@ Extracting "upward leaf curl, silvering" is a skill. Concluding "this is thrips"
 - Skills are leaves. No skill calls an agent. No skill calls another skill — the agent composes them.
 - Stateless and side-effect free unless `SKILL.md` §6 declares otherwise.
 - Uniform return: `{result, confidence, provenance, cost_ms, cost_units}`.
-- No provider SDK calls. Everything goes through `backend/gateways/`.
+- No provider SDK calls. Everything goes through the owning service's own `gateways/` package (`backend/<service>/gateways/`, never a shared one).
 - Prefer computation over model calls. A deterministic skill is a better skill.
 - Add the row to `skills/README.md` §2 in the same PR, with phase and safety flag.
 - Uncertainty and safety phrasing is human-authored per language — owned by `packs/CLAUDE.md`.

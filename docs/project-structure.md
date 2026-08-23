@@ -127,28 +127,16 @@ agri-os/
 │   │   └── en-IN/                     # P1  Pre-login UI default; post-login transcript translate-mode target. UI strings + agro glossary for translate-mode rendering
 │   └── regions/                       # P1  District variants, local units, seasonal calendars — 5 states
 │
-├── backend/
+├── backend/                           # Python 3.12 · FastAPI · uv — two Cloud Run services (ADR 0004)
 │   ├── CLAUDE.md                      # P1  Local rules
-│   ├── api/                           # P1  Role-scoped public API
-│   ├── graph/                         # P1  Entities, append-only event log, projections, outcome ledger
-│   ├── orchestration/                 # P1  Agent registry, planner, budget/timeout
-│   │   └── schema/                    # P1  manifest.schema.json — validates every agents/<id>/manifest.yaml
-│   ├── gateways/                      # P1  Provider adapters: sarvam, gemini, weather — swappable
-│   ├── services/
-│   │   ├── auth/                      # P1  OTP, session, biometric binding, number-change flow
-│   │   ├── sync/                      # P1  Outbox intake, idempotency, conflict resolution
-│   │   ├── media/                     # P1  Screening, storage, quota, rolling delete, thumbnail retention
-│   │   ├── quota/                     # P1  Slot accounting, overflow prompts, entitlement checks
-│   │   ├── notify/                    # P1  Channel abstraction: push, SMS, IVR, WhatsApp; quiet hours
-│   │   ├── scheduler/                 # P1  Follow-ups, stage triggers, digests
-│   │   ├── consent/                   # P1  Per-farmer, per-field, per-role consent state
-│   │   ├── play-billing/              # P1  Purchase verification, entitlements, RTDN webhooks
-│   │   ├── support/                   # P1  Feedback intake with attached context
-│   │   ├── cost-governor/             # P1  Per-user rate limits and model spend caps
-│   │   ├── flags/                     # P1  Remote config and feature flags
-│   │   ├── privacy/                   # P1  Export and deletion pipelines
-│   │   └── audit/                     # P1  Immutable log for safety and privacy events
-│   └── workers/                       # P1  Async: diagnosis, digests, follow-ups, evals
+│   ├── api/                           # P1  Service: orchestration, quota, identity, packs. Own pyproject, uv.lock, Dockerfile
+│   │   ├── app/                       # P1  FastAPI app, settings (env only), JSON logging, /healthz /readyz
+│   │   ├── gateways/                  # P1  Provider adapters for this service — every external SDK call lives here, nowhere else
+│   │   └── tests/                     # P1  pytest
+│   └── inference/                     # P1  Service: image analysis. Own scaling profile, pyproject, uv.lock, Dockerfile
+│       ├── app/                       # P1  FastAPI app, settings (env only), JSON logging, /healthz /readyz
+│       ├── pipeline/                  # P1  Model-backed analysis, progressively replaced by deterministic CV (ADR 0004)
+│       └── tests/                     # P1  pytest
 │
 ├── android/                           # Kotlin + Compose, single APK
 │   ├── CLAUDE.md                      # P1  Local rules
