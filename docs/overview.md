@@ -6,9 +6,9 @@ One page. Problem, users, goal, objectives, solution, moat, scope, success measu
 
 ## 1. Problem
 
-> Unverified. The holdings figures and the dealer-training claim below come from the founders' research; sources are not yet recorded in-repo. TODO: cite in `docs/design.md`. The extension-worker ratio is cited inline.
+> Unverified. The holdings figures and the dealer-training claim below come from the founders' research; sources are not yet recorded in-repo. TODO: cite in `docs/sources.md`. The extension-worker ratio is cited inline.
 
-India has ~146M operational holdings, ~86% of them small or marginal, and an extension-worker ratio below 1:5000 against a national guideline of 1:1100 in irrigated, 1:750 in rainfed and 1:400 in hilly areas ([ICRISAT](https://pressroom.icrisat.org/strengthening-agri-extension-for-a-strong-farm-sector); alternative framing noted in `docs/design.md`). Smallholder farmers lose crop and money to problems that are diagnosable and treatable — pests, disease, nutrient gaps, mistimed sprays — because the advice they can reach is slow, generic, rarely in their language, and comes from dealers whose own top-ranked constraint is lack of training. The moment of need is at the farm, on a poor connection, with no one to ask. The moment of decision is later, at home, often with a family member reading the screen (`docs/adr/0001-usage-context.md`).
+India has ~146M operational holdings, ~86% of them small or marginal, and an extension-worker ratio below 1:5000 against a national guideline of 1:1100 in irrigated, 1:750 in rainfed and 1:400 in hilly areas ([ICRISAT](https://pressroom.icrisat.org/strengthening-agri-extension-for-a-strong-farm-sector); alternative framing noted in `docs/sources.md`). Smallholder farmers lose crop and money to problems that are diagnosable and treatable — pests, disease, nutrient gaps, mistimed sprays — because the advice they can reach is slow, generic, rarely in their language, and comes from dealers whose own top-ranked constraint is lack of training. The moment of need is at the farm, on a poor connection, with no one to ask. The moment of decision is later, at home, often with a family member reading the screen (`docs/adr/0001-usage-context.md`).
 
 Existing tools assume literacy, connectivity, English, and a single user alone at the field. None of those hold.
 
@@ -88,4 +88,4 @@ Canonical scope and still-open questions: `docs/project-structure.md` §3, §6.
 
 ---
 
-Figures cited in `docs/design.md`. Sections marked founder-set or proposed are judgments, not findings.
+Figures cited in `docs/sources.md`. Sections marked founder-set or proposed are judgments, not findings.

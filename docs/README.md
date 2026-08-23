@@ -8,7 +8,7 @@ Source of truth for design decisions. `CLAUDE.md` routes here; the detail lives 
 |---|---|---|
 | `overview.md` | One-page summary: problem, users, goal, objectives, solution, moat, scope, success measures. | partial |
 | `project-structure.md` | Repo tree, locked decisions, MVP scope, CI gates, open questions. | **written** |
-| `design.md` | Master doc. Problem, users, scope, links to everything below. | stub |
+| `sources.md` | Citations for figures asserted in other docs. Pending vs recorded. | **partial** |
 | `architecture.md` | Five layers, module map, orchestration flow, scalability levers. | stub |
 | `agent-contracts.md` | Uniform `AgentRequest`/`AgentResponse`, manifest spec, nine-section rule, full agent catalog. | **written** |
 | `data-model.md` | Farm graph entities, append-only event log, role projections, outcome ledger. | stub |
@@ -20,6 +20,7 @@ Source of truth for design decisions. `CLAUDE.md` routes here; the detail lives 
 | `privacy-dpdp.md` | Consent model, retention per data class, deletion and export pipelines, audit, media policy. | partial |
 | `play-compliance.md` | Data Safety mapping, permissions rationale, billing, deletion URL. | stub |
 | `navigation-ia.md` | Screen inventory per role. Every screen: states, backing agent, offline behaviour, voice path. | partial |
+| `design-system.md` | Two-layer token model, role palettes and seeds, semantic tokens, type scale per role, Indic typesetting rules, shape and spacing scales, voice-state tokens, accessibility floor, CI gates. | **written** |
 | `voice-design.md` | Mic behaviour, hold vs tap, barge-in, readback rules, replay, failure speech, audio nav labels, transcript display, notification timing. | partial |
 | `offline-matrix.md` | Per screen, per role: works offline / degraded / online-only. Sync and conflict rules. | **written** |
 | `eval-strategy.md` | Golden set standards, labelling workflow, metrics, regression gates, red-team sets. | stub |

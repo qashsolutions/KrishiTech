@@ -5,9 +5,14 @@ One file per architectural decision. Docs describe the current state; ADRs hold 
 ## Convention
 
 - **Filename:** `NNNN-kebab-case-title.md` — zero-padded, sequential, never reused.
-- **Sections, in this order:** Status (`proposed` | `accepted` | `superseded by NNNN`) · Date · Context · Decision · Consequences · Alternatives considered.
+- **Sections, in this order:** Status (`proposed` | `accepted` | `superseded by NNNN`) · Date · Context · Decision · Consequences · Alternatives considered · `Open` (optional, last)
 - **Rule:** docs describe the current state; ADRs hold the reasoning and the alternatives that were rejected.
 - **Index:** add a row to the table below with every new ADR.
+
+`## Open` is optional and comes last. It records what this decision left
+unresolved — questions the decision depends on but did not answer. Use it
+rather than presenting an ADR as more settled than it is. An ADR with no
+unresolved dependencies omits the section entirely.
 
 ## Template
 
@@ -40,3 +45,4 @@ One file per architectural decision. Docs describe the current state; ADRs hold 
 | 0008 | [Multi-role users: one login, primary and secondary](0008-multi-role-users.md) | accepted | 2026-08-22 |
 | 0009 | [Cotton and soybean deferred to P2](0009-cotton-soybean-deferred-to-p2.md) | accepted | 2026-08-22 |
 | 0010 | [Labelled image corpus from day one](0010-labelled-image-corpus.md) | proposed | 2026-08-22 |
+| 0011 | [Role-differentiated palettes](0011-role-differentiated-palettes.md) | proposed | 2026-08-23 |

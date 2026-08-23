@@ -6,6 +6,14 @@ Mic behaviour, hold vs tap, barge-in, readback rules, replay, failure speech, au
 
 ---
 
+## Mic behaviour
+
+> Scope: mic behaviour — hold vs tap, barge-in semantics, readback rules, replay,
+> failure speech — is owned here (section not yet written). Visual, haptic and
+> audio-cue tokens for each mic state are owned by `docs/design-system.md` §5.
+> If the two disagree about behaviour, this file wins. If they disagree about a
+> colour, duration or size, design-system.md wins.
+
 ## Transcript display
 
 > Founder-set. Usage assumptions here (Indic keyboard editing is slow; re-record is the natural correction) are field knowledge of the founder's 200-farmer network.

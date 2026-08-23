@@ -7,6 +7,13 @@ Manual review checks, run by name. Not regex-enforced — judgment checks produc
 | CHECK 5 | Restated rules | Any rule stated in root `CLAUDE.md` that is ALSO stated in `agents/`, `skills/`, `packs/`, `backend/`, `android/` or `consoles/` `CLAUDE.md`. **Each rule lives in exactly one `CLAUDE.md`.** *Standing exclusion:* a `make` target description in the root Commands section that names a gate is NOT a restatement of a rule. It is a pointer to the enforcing mechanism. Do not flag folder `CLAUDE.md` rules as duplicates of a command listing, and never delete a folder rule on that basis. |
 | CHECK 6 | Contradictions | Any two `CLAUDE.md` files that disagree, including strength mismatches (one says "never", the other "ask"). |
 
+## Standing exclusions
+
+- `voice-design.md` and `design-system.md` both naming a mic state is not a restated
+  rule — they own different aspects of it (behaviour vs look-and-feel; the boundary is
+  stated in both files). A colour, size or duration appearing in `voice-design.md` IS
+  a violation.
+
 ## How to run
 
 1. Read every `CLAUDE.md`: root, `agents/`, `skills/`, `packs/`, `backend/`, `android/`, `consoles/`.

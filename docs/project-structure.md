@@ -48,10 +48,11 @@ agri-os/
 ├── docs/
 │   ├── README.md                      # P1  Doc index: what belongs in each file, and open questions
 │   ├── project-structure.md           # P1  ✅ written — Repo tree, locked decisions, MVP scope, CI gates, open questions.
-│   ├── design.md                      # P1  Master doc; links everything below
+│   ├── sources.md                     # P1  Citations for asserted figures
 │   ├── architecture.md                # P1  Five layers, module map, scalability levers
 │   ├── agent-contracts.md             # P1  ✅ written — uniform I/O, manifest, nine-section rule, agent catalog
 │   ├── navigation-ia.md               # P1  ✅ written — 68 screens across three roles, states, backing agents
+│   ├── design-system.md               # P1  ✅ written — two-layer tokens, role palettes, type scale per role, voice-state tokens
 │   ├── offline-matrix.md              # P1  ✅ written — capability matrix, outbox, conflicts, media queue
 │   ├── data-model.md                  # P1  Farm graph entities, event log, role projections, outcome ledger
 │   ├── identity.md                    # P1  Phone-as-person, number change, shared devices, dormancy
