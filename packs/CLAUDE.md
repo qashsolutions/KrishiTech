@@ -12,7 +12,7 @@ packs/regions/     district-level term variants, local units, seasonal calendars
 
 ## Two crop families
 
-> Unverified. Family characterisations are pending agronomist confirmation per crop. TODO: confirm establishment method, cycle length and harvest pattern for each crop in its pack; the pack is authoritative once written.
+> Unverified. Family characterisations are pending agronomist confirmation per crop (Family A: Naren Solanki — see *Named roles* below; Family B: not yet assigned). TODO: confirm establishment method, cycle length and harvest pattern for each crop in its pack; the pack is authoritative once written.
 
 - **Family A — vegetables** (chilli, tomato, okra): short cycle, high spray frequency, multi-pick harvest. Chilli and tomato are usually transplanted; okra is usually direct-sown. PHI and re-entry dominate, because harvest repeats weekly.
 - **Family B — field crops** (cotton, soybean): long cycle, direct-sown, largely rainfed, single harvest. Activates the weed module; cotton additionally activates resistance management and Bt refuge rules.
@@ -36,6 +36,18 @@ The same Telugu word differs between Telangana and coastal Andhra. That is a reg
 - Declared confusion pairs for look-alikes (thrips vs mite in chilli is the canonical one)
 - Complete safety block: PHI, re-entry, max sprays per season, restricted molecules
 - Interventions are classes, not products
+
+## Named roles — crop packs
+
+> Founder-set. Names are recorded here so pack `author` / `approver` / breeder fields resolve to a real person. Add names here before using them in a pack.
+
+| Person | Roles | Crops | Contact |
+|---|---|---|---|
+| Naren Solanki | Agronomist **and** breeder · pack **author** **and** pack **approver** | chilli, tomato, okra (Family A) | narensolanki2004@gmail.com |
+
+- Naren Solanki developed all the hybrids for these three crops and therefore holds both the agronomist and breeder roles for them.
+- For the chilli, tomato and okra packs, record the same name and email — Naren Solanki, narensolanki2004@gmail.com — in both the `author` and `approver` fields. The requirement that every pack carry a named author and a named approver is unchanged; this is the interim assignment until additional names are added.
+- Additional names will be added in due course. Cotton and soybean (Family B) have no named agronomist, breeder, author or approver yet.
 
 ## Every language pack requires
 

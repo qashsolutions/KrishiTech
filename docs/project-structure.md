@@ -25,6 +25,15 @@
 | Safeguarding | Self-harm signals detected, never blocked or deleted. Dedicated calm support surface. P1 |
 | Field team | 10 staff for expert console and outcome follow-ups |
 | Seed production module | **P2.** Farm graph schema must be able to represent a grower contract so it is not blocked later |
+| Backend language | Python 3.12 |
+| Backend framework | FastAPI |
+| Hosting | Google Cloud Run, region `asia-south1` (Mumbai) |
+| Services | Two: `api` (orchestration, quota, identity, packs) and `inference` (image analysis). Separate scaling and resource profiles |
+| Datastore | Cloud SQL for PostgreSQL. Cloud Storage for images |
+| Android services | Firebase — Auth, FCM, Crashlytics, Remote Config |
+| Python toolchain | `uv` deps · `ruff` lint and format · `pytest` · `mypy` strict on agent contracts |
+| Task runner | `make` at repo root |
+| CI | GitHub Actions |
 
 ---
 
@@ -241,10 +250,4 @@ Prose does not enforce; these do.
 
 Canonical list: `docs/README.md`. Kept here for convenience.
 
-| Question | Blocks |
-|---|---|
-| Multi-role users (farmer who is also an FPO office-bearer) — switcher or separate logins? | S-05, `identity.md` |
-| Dealer counter-mode consent — per lookup, or once at onboarding? | D-05, `role-permissions.md` |
-| Paid slot expiry — do purchased 500 slots expire? | `quota` service |
-| Dormant account rule — how long before a recycled number is released? | `identity.md` |
-| Are cotton and soybean genuinely P1.5, or needed at launch? | pack authoring schedule |
+All questions from this section are resolved. See `docs/adr/README.md` for the decision records, and the open questions table in `docs/README.md` for anything still outstanding.

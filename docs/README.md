@@ -63,8 +63,9 @@ Rules:
 | ~~Field team size?~~ **Decided: 10 staff** | resolved |
 | ~~Identity model?~~ **Decided: phone = person** | `identity.md` |
 | ~~Seed production module?~~ **Decided: P2, schema must support grower contract** | resolved |
-| Paid slot expiry — do 500 purchased slots expire? | `quota` service |
-| Dormant account rule before a recycled number is released | `identity.md` |
-| Dealer counter-mode consent — per lookup or once at onboarding? | `role-permissions.md` |
-| Multi-role users (farmer who is also an FPO office-bearer) — switcher or separate logins? | S-05, `identity.md` |
-| Are cotton and soybean genuinely P1.5, or needed at launch? | pack authoring schedule |
+| ~~Paid slot expiry~~ **Resolved: 1 year, unused forfeited, 30-day grace toggle** | ADR 0005 |
+| ~~Dormant account rule~~ **Resolved: 90 days + failed re-verification; 30-day data retention after release** | ADR 0006 |
+| ~~Dealer counter-mode consent~~ **Resolved: once at group join, minimum scope, visible log, one-tap revoke** | ADR 0007 |
+| ~~Multi-role users~~ **Resolved: one login, primary + secondary roles** | ADR 0008 |
+| ~~Cotton and soybean timing~~ **Resolved: P2** | ADR 0009 |
+| Labelled image corpus in P1 — accept, reject or amend ADR 0010? | `evals/`, expert console review flow, `privacy-dpdp.md` |
