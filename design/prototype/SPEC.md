@@ -468,4 +468,4 @@ the `[DELETION URL]` token on S-30 (Play parity) · the Latin "spray" inside tra
 6. F-02 / S-22: no state row (Telangana + Change); P-01: no "Crop map" button → P-02.
 7. Borrowed string keys: F-41 renders `f25.title` ("The answer") and S-22 renders `f02.confirm` ("This is the place"). Both need their own keys in all six locales (§2.3).
 8. F-25 healthy omits the persistent hear-again chip that §2.3 requires (`03-report-problem/screens.js`, healthy branch); S-21's language rows carry no Listen affordance though S-01's do.
-9. The Indic layout failures in §7.2 reproduce here too — same stylesheet, same cause — but fix them in `design-system.md` first, not in this CSS.
+9. The Indic layout failures in §7.2 reproduce here too — same stylesheet, same cause — and they stay unfixed here. They are mockup-only: this prototype is throwaway, so the breakage never reaches the app. Do not patch this CSS to hide it. The reconciliation belongs in `design-system.md`, and gate 5 in §5 is on the Kotlin build, not on this stylesheet. Unlike items 1–8, this one is not a gap to close before field sessions.
