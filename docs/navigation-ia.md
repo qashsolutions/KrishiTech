@@ -14,7 +14,7 @@ Languages: te-IN, ta-IN, kn-IN, mr-IN, hi-IN. English: pre-login UI default; pos
 3. **Every screen can be spoken.** Long-press any nav item or heading speaks it. Assumes no literacy.
 4. **Every screen can be complained about.** Feedback is reachable in one action from every screen, voice-enabled, context attached.
 5. **No dead ends.** Every error, empty, and blocked state offers a next action, spoken.
-6. **Answer before ask.** Never gate help behind a prompt, a paywall, or a permission.
+6. **Answer before ask.** The app's own answer is always free — never gated behind a prompt, a paywall, or a permission. A human expert or a nearby dealer is an optional extra on top of the free answer, offered in plain words; the expert is paid, and the price is said before the farmer commits. *(Reworded 2026-08-24 with the paid expert.)*
 
 ---
 
@@ -108,7 +108,7 @@ Literate, data-dense users. Voice available but not primary; typing is faster fo
 | F-25 | Diagnosis card — what, why, when, dose, precautions, alternatives; spoken and shown | diagnosis, treatment, agronomic-safety | ✕ (cached after) | P1 |
 | F-26 | Confusion-pair card — "it is one of these two, here is how to tell" | diagnosis | ✕ | P1 |
 | F-27 | Expert pending — a person is looking, with ETA | escalation | ◐ | P1 |
-| F-28 | Dealer availability — appears only after the recommendation is locked | input-match | ✕ | P1.5 |
+| F-28 | Dealer availability — full stock view after the recommendation is locked; from a low-confidence diagnosis, a nearby-dealer connect without stock or recommendation (2026-08-24) | input-match | ✕ | P1.5 |
 | F-29 | Action confirm — did it / skipped / later, one tap | outcome | ✅ queued | P1 |
 | F-30 | Follow-up — better / same / worse, one question | outcome | ✅ queued | P1 |
 
@@ -184,6 +184,7 @@ Dealers see aggregate demand plus consented leads only. Never another farmer's r
 | S-30 | Delete my account — irreversible, spoken confirmation, matches the Play-required deletion URL | privacy | ✕ | P1 |
 | S-31 | Terms, privacy policy, content policy | — | ✅ | P1 |
 | S-32 | About — version, licences | — | ✅ | P1 |
+| S-33 | Delete my data — Play-required partial deletion: cases, photos and answers erased; account, phone, fields and crops kept. Spoken or tapped confirmation; done state returns to S-27. Entry rows on S-20 and S-27 | privacy | ✕ | P1 |
 | S-40 | **Feedback sheet** — reachable from every screen; voice or text; auto-attaches screen, case ID, app version, device, language | support | ✅ queued | P1 |
 | S-41 | Help — how to use, short spoken clips | — | ✅ | P1 |
 | S-42 | **Support screen** — the safeguarding surface. Helpline, surface rules and constraints are owned by `docs/safeguarding-protocol.md` (S-42 section). Never visible to dealer or FPO. | safeguarding | ✅ | P1 |
@@ -204,7 +205,7 @@ No screen is done without all applicable states.
 | Offline | Per `docs/offline-matrix.md`. Say when it will send. |
 | Degraded | Show data age explicitly. "This forecast is from yesterday evening." |
 | Blocked | Content gate fired. Polite, non-accusatory, redirect. |
-| Low confidence | Never hidden. Say we are unsure and offer the expert. |
+| Low confidence | Never hidden. Say we are unsure and what would make us sure; offer more photos, the paid expert, and a dealer nearby. |
 | Queued | Confirm capture succeeded, state what happens next. |
 
 Every state has a spoken form. English-only failure text is a bug.
@@ -245,8 +246,8 @@ Every state has a spoken form. English-only failure text is a bug.
 | Farmer | 24 | 1 | 0 | 25 |
 | Dealer | 0 | 7 | 1 | 8 |
 | FPO | 2 | 2 | 3 | 7 |
-| Settings / support | 16 | 0 | 0 | 16 |
-| **Total** | **54** | **10** | **4** | **68** |
+| Settings / support | 17 | 0 | 0 | 17 |
+| **Total** | **55** | **10** | **4** | **69** |
 
 Seed production module (P2) is not counted — it is a separate surface, specified later. The farm graph schema must be able to represent a grower contract so it is not blocked.
 
