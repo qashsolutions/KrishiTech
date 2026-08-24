@@ -406,10 +406,11 @@ All six renderings were reviewed frame by frame. Screen coverage is complete and
 shaping is correct in every script checked — no tofu, no broken conjuncts. Only findings
 that outlive this prototype are recorded here; render-only artefacts are not tracked.
 
-**1. Critical — Indic text does not fit the layouts.** The one finding that carries into
-the real app. The type floor (≥16sp, body 18/28), the 56dp touch minimum, the 72dp docked
+**1. Critical — Indic text does not fit the layouts.** The one finding whose constraint
+carries into the real app. The type floor (≥16sp, body 18/28), the 56dp touch minimum, the 72dp docked
 mic and the four-item nav were all sized against English strings; Tamil and Kannada are
-substantially longer and the chrome fails. Observed across Marathi and Tamil: four screens
+substantially longer and the chrome fails. Observed in Marathi, Tamil and Kannada — the
+same screens break in each, so this is the layout, not one locale's wording: four screens
 (S-06, F-25 caution, F-25 urgent, S-20) shrink to ~70–80% scale — body text at ~5–6px,
 unreadable — because the content will not fit; cards overflow the phone frame (D-03, P-03,
 F-10, F-28); F-20's capture row collapses, wrapping both side buttons to three lines and
@@ -418,11 +419,17 @@ taller screens; the FPO "Demand forecast" tab wraps or truncates on all four P-s
 and the back chevron centres against two- and three-line titles (root cause verified —
 `.appbar { align-items: center }` in `shared/styles.css`).
 
-This is a design-system constraint, not a prototype bug: **`design-system.md` owns the type
-scale and touch floor and needs to reconcile them against the longest supported string,
-and `device-constraints.md` owns validating it on the device floor at the largest system
-font scale.** Fixing the prototype's CSS without that reconciliation just hides it until
-the Kotlin build. Gate 5 in §5 states the rule.
+**Scope: every breakage listed above is in the design mockups only** — the
+Design_Update_1.pdf renderings and this HTML prototype, both throwaway. No Kotlin screen
+has been written yet and none will ship this way: the Android layouts are built against
+the longest supported string from the start, and gate 5 blocks any screen that only holds
+its text in English. What carries into the real app is the constraint, not the breakage.
+
+That constraint is a design-system one, not a prototype bug: **`design-system.md` owns the
+type scale and touch floor and needs to reconcile them against the longest supported
+string, and `device-constraints.md` owns validating it on the device floor at the largest
+system font scale.** Fixing the prototype's CSS without that reconciliation just hides it
+until the Kotlin build. Gate 5 in §5 states the rule.
 
 **2. F-25 healthy omits the persistent "Hear it again" chip** that §2.3 requires on every
 answer — a stated rule broken in both deck and prototype, so it would propagate. (It also
