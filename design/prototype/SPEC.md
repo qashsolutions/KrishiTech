@@ -353,7 +353,7 @@ Top tabs: Members(P-01) · Alerts(P-03) · Demand forecast(stub, P2) · More(stu
 2. Clinical verification of S-42's numbers AND human authoring of its copy (safeguarding-protocol TODO).
 3. Material Theme Builder export to replace `[derived]` hexes in tokens.css (both palettes).
 4. Founder ratification of the UNSPECIFIED decisions in each chunk README.
-5. **Indic layout pass** (§7.2B). Every screen must hold its longest supported string at full scale — no auto-shrunk frames, no clipped buttons or tabs, no card overflowing the phone frame, no mic colliding with the nav. Validate on the device floor in `device-constraints.md` at the largest system font scale, in Tamil and Kannada first — they break earliest. A screen that only fits in English is not done.
+5. **Indic layout pass** (§7.2 item 1). Every screen must hold its longest supported string at full scale — no auto-shrunk frames, no clipped buttons or tabs, no card overflowing the phone frame, no mic colliding with the nav. Validate on the device floor in `device-constraints.md` at the largest system font scale, in Tamil and Kannada first — they break earliest, though Marathi breaks the same screens. **This gate is on the Kotlin build, not on the mockups:** the failures recorded in §7.2 are in the Design_Update_1.pdf renderings and the HTML prototype, both throwaway, and are not to be chased there. Reconcile the type scale and touch floor in `design-system.md`, then build the Android layouts against the longest supported string from the start, so the app never carries the breakage the mockups show. A screen that only fits in English is not done.
 
 ## 6. Open decisions & known gaps
 
