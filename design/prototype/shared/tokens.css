@@ -1,0 +1,169 @@
+/* =============================================================================
+   KrishiTech — design tokens (prototype mirror)
+   Source of truth: docs/design-system.md — every value cites its section.
+   [derived] = NOT stated in the doc: hand-derived from the §2.1 seeds pending
+   the Material Theme Builder export. Replace with the export, keep the names.
+   Rendering basis: 1dp = 1px, 1sp = 1px × --sp-factor (font-scale switch).
+   ============================================================================= */
+
+:root {
+  /* --------------------------------------------------------------- font scale
+     §3.5 — layouts must survive 200% font scale. Chrome switch sets this. */
+  --sp-factor: 1;
+
+  /* ---------------------------------------------------- §2.1 seeds — farmer */
+  --seed-primary:   #17643B;  /* deep leaf   */
+  --seed-secondary: #7A5B12;  /* earth ochre */
+  --seed-tertiary:  #0E5C63;  /* deep teal   */
+  --seed-neutral:   #5C5F58;
+
+  /* -------------------------------------- brand / chrome layer (§1, farmer)
+     Light scheme only — §2.5: farmer is light-only in P1.                  */
+  --md-primary:              #17643B;  /* seed used as primary40 [derived] */
+  --md-on-primary:           #FFFFFF;  /* [derived] */
+  --md-primary-container:    #A5F2C3;  /* [derived] */
+  --md-on-primary-container: #00210F;  /* [derived] */
+  --md-secondary:            #7A5B12;  /* seed as secondary40 [derived] */
+  --md-on-secondary:         #FFFFFF;  /* [derived] */
+  --md-secondary-container:  #FFDF9E;  /* [derived] */
+  --md-on-secondary-container:#251A00; /* [derived] */
+  --md-tertiary:             #0E5C63;  /* seed as tertiary40 [derived] */
+  --md-on-tertiary:          #FFFFFF;  /* [derived] */
+  --md-tertiary-container:   #A9EDF3;  /* [derived] */
+  --md-on-tertiary-container:#001F23;  /* [derived] */
+  --md-surface:              #FCFCF9;  /* §2.3 — stated light surface */
+  --md-on-surface:           #1C1B1F;  /* [derived]; matches §2.7 text */
+  --md-surface-container:    #F0F1EC;  /* tonal card surface [derived] */
+  --md-surface-container-high:#EAEBE6; /* [derived] */
+  --md-on-surface-variant:   #414942;  /* [derived] */
+  --md-outline:              #717A70;  /* [derived] */
+  --md-outline-variant:      #C1C9C0;  /* [derived] */
+
+  /* M3 error role [derived — see UNSPECIFIED #3 in README]:
+     §2.3 forbids the statusUrgent TOKEN on generic errors; it defines no
+     error role. M3 baseline error is used. Hex coincides with statusUrgent;
+     the token is distinct on purpose (§1 two-layer rule). */
+  --md-error:            #B3261E;
+  --md-on-error:         #FFFFFF;
+  --md-error-container:  #F9DEDC;
+  --md-on-error-container:#410E0B;
+
+  /* ------------------------------- semantic layer (§2.3 — stated verbatim) */
+  --status-urgent:            #B3261E;
+  --status-urgent-container:  #F9DEDC;
+  --status-caution:           #8A5000;
+  --status-caution-container: #FFDDB0;
+  --status-info:              #0B5C8A;
+  --status-info-container:    #CDE7F8;
+  --outline-quiet:            #6F7A6B;
+  --confidence-fill:          #3D4A5C;
+  --confidence-track:         #C7CBD1;
+
+  /* --------------------------------------- §3.3 type scale — farmer (sp) */
+  --type-answer-size: calc(32px * var(--sp-factor));
+  --type-answer-line: calc(48px * var(--sp-factor));
+  --type-answer-weight: 600;
+  --type-title-size:  calc(24px * var(--sp-factor));
+  --type-title-line:  calc(36px * var(--sp-factor));
+  --type-title-weight: 600;
+  --type-bodylarge-size: calc(20px * var(--sp-factor));
+  --type-bodylarge-line: calc(31px * var(--sp-factor));
+  --type-body-size:   calc(18px * var(--sp-factor));
+  --type-body-line:   calc(28px * var(--sp-factor));
+  --type-label-size:  calc(18px * var(--sp-factor));
+  --type-label-line:  calc(24px * var(--sp-factor));
+  --type-label-weight: 600;
+  --type-caption-size: calc(16px * var(--sp-factor));
+  --type-caption-line: calc(24px * var(--sp-factor));
+
+  /* §3.1 families — Noto only; weights 400/600 only (§3.1) */
+  --font-latin: "Noto Sans", system-ui, sans-serif;
+  --font-deva:  "Noto Sans Devanagari", system-ui, sans-serif;
+  --font-telu:  "Noto Sans Telugu", system-ui, sans-serif;
+  --font-taml:  "Noto Sans Tamil", system-ui, sans-serif;
+  --font-knda:  "Noto Sans Kannada", system-ui, sans-serif;
+
+  /* ------------------------------------------- §4 shape & dims — farmer */
+  --radius-small: 12px;   /* chip, text field; also buttons [UNSPECIFIED #4] */
+  --radius-medium: 20px;  /* card */
+  --radius-large: 28px;   /* sheet, dialog */
+  --touch-min: 56px;      /* min touch target */
+  --touch-sep: 8px;       /* §9 min separation */
+  --screen-margin: 20px;  /* screen edge margin */
+  --card-padding: 20px;   /* card internal padding */
+  --card-border: 1px;     /* §4 elevation: 1dp outlineQuiet border, no shadow */
+
+  /* §4 spacing scale — the only spacing values that exist */
+  --sp-4: 4px; --sp-8: 8px; --sp-12: 12px; --sp-16: 16px;
+  --sp-24: 24px; --sp-32: 32px; --sp-48: 48px;
+
+  /* ------------------------------------------------------- §5 voice / mic */
+  --mic-size: 72px;       /* §5 mic target, bottom-centre */
+
+  /* ------------------------------------------------------------ §6 motion */
+  --motion-standard: 200ms;
+  --motion-emphasised: 350ms;
+
+  /* -------------------------------------------------------- §7 iconography */
+  --icon-size: 28px;      /* farmer; Material Symbols Outlined wt 400 */
+
+  /* ---------------------------------------------------- §9 accessibility */
+  --focus-width: 2px;     /* visible focus indicator, primary */
+
+  /* ------------------------------------------------------ §2.7 S-42 only */
+  --s42-surface: #FFFFFF;
+  --s42-text: #1C1B1F;
+}
+
+/* =============================================================================
+   Dealer / FPO role overrides — design-system §1 two-layer model.
+   ONLY the brand/chrome layer and role-varying dims change; the semantic
+   tokens (§2.3) are deliberately NOT overridden — severity, confidence and
+   sync render identically in every role.
+   Brand tones [derived] from the §2.1 dealer/FPO seeds (#2F3E9E indigo,
+   #4A5568 slate, #6B4E71 muted plum, #5A5C63 neutral) pending the Material
+   Theme Builder export. Shape/dims/type from §3.3 + §4 dealer columns.
+   Dark theme: dealer/FPO follow system (§2.5) — prototype renders light only.
+   ============================================================================= */
+.role-dealer {
+  --md-primary:              #2F3E9E;  /* seed as primary40 [derived] */
+  --md-on-primary:           #FFFFFF;
+  --md-primary-container:    #DEE0FF;  /* [derived] */
+  --md-on-primary-container: #00105C;  /* [derived] */
+  --md-secondary:            #4A5568;
+  --md-on-secondary:         #FFFFFF;
+  --md-secondary-container:  #DCE3F0;  /* [derived] */
+  --md-on-secondary-container:#131C2B; /* [derived] */
+  --md-tertiary:             #6B4E71;
+  --md-tertiary-container:   #F3DAF8;  /* [derived] */
+  --md-on-tertiary-container:#271430;  /* [derived] */
+  --md-surface-container:    #EFF0F3;  /* [derived] */
+  --md-surface-container-high:#E9EAEF; /* [derived] */
+  --md-on-surface-variant:   #44464F;  /* [derived] */
+  --md-outline:              #757780;  /* [derived] */
+  --md-outline-variant:      #C5C6D0;  /* [derived] */
+
+  /* §4 — dealer/FPO shape & dims */
+  --radius-small: 4px;
+  --radius-medium: 8px;
+  --radius-large: 12px;
+  --touch-min: 48px;
+  --screen-margin: 16px;
+  --card-padding: 12px;
+  --icon-size: 24px;      /* §7 dealer icon size */
+
+  /* §3.3 — dealer/FPO type scale (display/title/body/label/caption).
+     bodyLarge has no dealer row: interpolated 16/24 [derived]. */
+  --type-answer-size: calc(28px * var(--sp-factor));
+  --type-answer-line: calc(38px * var(--sp-factor));
+  --type-title-size:  calc(20px * var(--sp-factor));
+  --type-title-line:  calc(28px * var(--sp-factor));
+  --type-bodylarge-size: calc(16px * var(--sp-factor));
+  --type-bodylarge-line: calc(24px * var(--sp-factor));
+  --type-body-size:   calc(14px * var(--sp-factor));
+  --type-body-line:   calc(22px * var(--sp-factor));
+  --type-label-size:  calc(14px * var(--sp-factor));
+  --type-label-line:  calc(20px * var(--sp-factor));
+  --type-caption-size: calc(12px * var(--sp-factor));
+  --type-caption-line: calc(18px * var(--sp-factor));
+}

@@ -174,7 +174,7 @@ Dealers see aggregate demand plus consented leads only. Never another farmer's r
 | S-20 | Settings home | — | ✅ | P1 |
 | S-21 | Language — change any time; re-downloads pack if needed. Default state of the English transcript toggle (per user, default off) | i18n | ◐ | P1 |
 | S-22 | Region / district — correct what GPS guessed | context | ✅ | P1 |
-| S-23 | Theme — day / night / system | — | ✅ | P1 |
+| S-23 | Theme — dealer/FPO: day / night / system. Farmer: day only in P1 (`design-system.md` §2.5) | — | ✅ | P1 |
 | S-24 | Profile — name, phone, fields | context | ✅ | P1 |
 | S-25 | Security — biometric unlock toggle | auth | ✅ | P1 |
 | S-26 | Notifications & quiet hours | notify | ✅ | P1 |
@@ -242,10 +242,10 @@ Every state has a spoken form. English-only failure text is a bug.
 | Role | P1 | P1.5 | P2 | Total |
 |---|---|---|---|---|
 | Shared / onboarding | 12 | 0 | 0 | 12 |
-| Farmer | 25 | 1 | 0 | 26 |
+| Farmer | 24 | 1 | 0 | 25 |
 | Dealer | 0 | 7 | 1 | 8 |
 | FPO | 2 | 2 | 3 | 7 |
-| Settings / support | 15 | 0 | 0 | 15 |
+| Settings / support | 16 | 0 | 0 | 16 |
 | **Total** | **54** | **10** | **4** | **68** |
 
 Seed production module (P2) is not counted — it is a separate surface, specified later. The farm graph schema must be able to represent a grower contract so it is not blocked.
@@ -258,5 +258,8 @@ Full list: `docs/README.md`.
 
 | Question | Blocks |
 |---|---|
-| Multi-role users — one person who is both farmer and FPO office-bearer. Switcher or separate logins? | S-05 |
-| Dealer counter mode — does the farmer consent per-lookup, or once at onboarding? | D-05, `role-permissions.md` |
+| ~~Multi-role users — switcher or separate logins?~~ **Resolved: one login, primary + secondary roles — ADR 0008** | resolved |
+| ~~Dealer counter-mode consent — per-lookup or once?~~ **Resolved: once at group join, minimum scope, visible log, one-tap revoke — ADR 0007** | resolved |
+| Bystander re-auth surface — cited by `design-system.md` §0 (FIX W) but has no screen ID in this inventory | `role-permissions.md`, S-25 |
+| Number-change flow — `identity.md` requires re-verify + carried history; no screens inventoried | `identity.md`, S-24 |
+| Console screen inventory — expert, authoring and admin consoles are P1 with no screen spec | `consoles/` |

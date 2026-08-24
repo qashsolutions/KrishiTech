@@ -70,3 +70,6 @@ Rules:
 | ~~Multi-role users~~ **Resolved: one login, primary + secondary roles** | ADR 0008 |
 | ~~Cotton and soybean timing~~ **Resolved: P2** | ADR 0009 |
 | Labelled image corpus in P1 — accept, reject or amend ADR 0010? | `evals/`, expert console review flow, `privacy-dpdp.md` |
+| Bystander re-auth surface — no screen ID in `navigation-ia.md` (design-system §0, FIX W) | `role-permissions.md`, `navigation-ia.md` |
+| Number-change flow screens — `identity.md` requires re-verify + carried history; none inventoried | `identity.md`, `navigation-ia.md` |
+| Console screen inventory — expert/authoring/admin are P1 with no screen spec | `consoles/` |

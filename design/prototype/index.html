@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KrishiTech — UI prototype</title>
+<style>
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: system-ui, sans-serif; background: #E8E9E4; color: #1C1B1F; padding: 48px 24px; }
+  main { max-width: 640px; margin: 0 auto; display: flex; flex-direction: column; gap: 16px; }
+  h1 { font-size: 28px; }
+  p.sub { color: #5C5F58; margin-bottom: 16px; }
+  a.chunk {
+    display: block; background: #fff; border: 1px solid #B9BCB4; border-radius: 12px;
+    padding: 20px 24px; text-decoration: none; color: inherit;
+  }
+  a.chunk:hover { border-color: #17643B; }
+  a.chunk b { display: block; font-size: 18px; margin-bottom: 4px; }
+  a.chunk span { color: #5C5F58; font-size: 14px; }
+  a.chunk.soon { opacity: 0.5; pointer-events: none; }
+  footer { max-width: 640px; margin: 32px auto 0; color: #5C5F58; font-size: 13px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>KrishiTech — UI prototype</h1>
+  <p class="sub">Farmer app, 412×915. Each chunk has a BOARD (every screen × state)
+  and an interactive FLOW; chunks link into one continuous journey. Six languages —
+  Indic strings are drafts until native-speaker review.</p>
+
+  <a class="chunk" href="01-onboarding/index.html">
+    <b>01 · Onboarding</b>
+    <span>S-01…S-07, F-01…F-05 — language, OTP, consent, role, permissions, field setup</span>
+  </a>
+  <a class="chunk" href="02-home-crop/index.html">
+    <b>02 · Home &amp; crop</b>
+    <span>F-10…F-14 — four-tile home, crop timeline, task detail, weather → action, field switcher</span>
+  </a>
+  <a class="chunk" href="03-report-problem/index.html">
+    <b>03 · Report a problem</b>
+    <span>F-20…F-30 — guided capture, voice note, diagnosis card, dealer availability, expert, outcome</span>
+  </a>
+  <a class="chunk" href="04-ask-history/index.html">
+    <b>04 · Ask &amp; history · images</b>
+    <span>F-40…F-43, F-50…F-53 — ask agent, answer, case history, image library, quota, delete, buy slots</span>
+  </a>
+  <a class="chunk" href="05-settings/index.html">
+    <b>05 · Settings &amp; support</b>
+    <span>S-20…S-32, S-40…S-42 — settings, privacy &amp; consent, export/delete, feedback, help, safeguarding surface</span>
+  </a>
+  <a class="chunk" href="06-dealer/index.html">
+    <b>06 · Dealer (P1.5)</b>
+    <span>D-01…D-07 — catchment, demand forecast, leads, counter mode, orders, stock · indigo role palette</span>
+  </a>
+  <a class="chunk" href="07-fpo/index.html">
+    <b>07 · FPO</b>
+    <span>P-01…P-04 — member list (read-only), crop map, cluster alerts, alert detail · indigo role palette</span>
+  </a>
+</main>
+<footer>
+  Source of truth: docs/design-system.md and docs/navigation-ia.md.
+  Full screen-and-flow specification: <a href="SPEC.md">SPEC.md</a> in this folder.
+  Agronomic content renders as marked placeholders — it comes only from
+  agronomist-approved crop packs, never generated.
+</footer>
+</body>
+</html>

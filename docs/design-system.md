@@ -135,6 +135,15 @@ Overrides everything above. No brand colour of any kind, no role palette, no urg
 no logo. Surface `#FFFFFF`, text `#1C1B1F`, one action. Calm, unbranded, no upsell.
 Not reachable from a bystander-visible surface — see `role-permissions.md`.
 
+### 2.8 Pre-login screens (S-01–S-04)
+
+> Founder-set.
+
+Role is resolved only at S-05, so S-01–S-04 carry no role. Pre-login screens render in
+the **farmer** palette. The first-run audience is overwhelmingly farmers, and a third
+neutral palette would double the pre-login surfaces to test for no benefit. Revisit only
+if a dealer-first distribution channel appears.
+
 ---
 
 ## 3. Typography

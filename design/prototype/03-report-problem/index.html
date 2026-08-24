@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KrishiTech — 03 Report a problem prototype (F-20…F-30)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600&family=Noto+Sans+Devanagari:wght@400;600&family=Noto+Sans+Telugu:wght@400;600&family=Noto+Sans+Tamil:wght@400;600&family=Noto+Sans+Kannada:wght@400;600&display=swap">
+<link rel="stylesheet" href="../shared/tokens.css">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="chrome">
+  <div class="brand">KrishiTech · prototype
+    <small id="brandSub"></small>
+  </div>
+  <nav class="seg" aria-label="View mode">
+    <button id="btnBoard" type="button">BOARD</button>
+    <button id="btnFlow" type="button">FLOW</button>
+  </nav>
+  <label class="ctl">Language
+    <select id="selLang"></select>
+  </label>
+  <label class="ctl">Font scale
+    <select id="selScale">
+      <option value="1" selected>100%</option>
+      <option value="1.5">150%</option>
+      <option value="2">200%</option>
+    </select>
+  </label>
+  <label class="toggle"><input type="checkbox" id="chkOffline"> Simulate offline</label>
+  <label class="ctl">Board zoom
+    <input type="range" id="rangeTiles" min="0.3" max="0.6" step="0.02" value="0.42">
+  </label>
+  <span class="spacer"></span>
+  <span id="chunklinks"></span>
+  <button class="plainbtn" id="btnRestart" type="button">Restart flow</button>
+</header>
+
+<div class="statebar" id="statebar"></div>
+<main class="stage" id="stage"></main>
+<div class="toast" id="toast" role="status"></div>
+
+<noscript>This prototype needs JavaScript. Open index.html in any modern browser.</noscript>
+
+<script src="../shared/strings/en-IN.js"></script>
+<script src="../shared/strings/hi-IN.js"></script>
+<script src="../shared/strings/mr-IN.js"></script>
+<script src="../shared/strings/te-IN.js"></script>
+<script src="../shared/strings/ta-IN.js"></script>
+<script src="../shared/strings/kn-IN.js"></script>
+<script src="../shared/proto.js"></script>
+<script src="screens.js"></script>
+</body>
+</html>
