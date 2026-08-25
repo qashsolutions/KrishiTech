@@ -214,6 +214,14 @@ Two scales. sp everywhere — never dp for text.
   distorts glyphs. Use weight or colour for emphasis.
 - The same sp yields different apparent size across these scripts. A per-script optical
   correction factor may be needed — **measure, do not guess** (§11).
+- **Indic strings run longer than English, and the scales above were set against English.**
+  The 2026-08-24 deck review found the chrome fails in Marathi, Tamil and Kannada — frames
+  auto-shrink, cards overflow, tabs truncate, the mic collides with the nav
+  (`design/prototype/SPEC.md` §7.2 item 1). Those failures are in mockups, not in code, and
+  the point of recording them here is that the code never inherits them: §3.3, §4's 56dp
+  floor and §5's 72dp mic must be reconciled against the longest supported string **before**
+  the Kotlin layouts are built. Open in §11; gate 5 in that spec's §5 blocks field sessions
+  on it.
 
 ### 3.5 Font scaling
 
@@ -366,6 +374,7 @@ drifts and stops being the source of truth within two sprints.
 |---|---|---|
 | Are Noto **UI** variants reachable via Compose's `GoogleFont` provider, or TTF-only? | Chunk C font declaration | Unverified — check the provider's font list before writing `Type.kt` |
 | Per-script optical size correction — do Telugu and Kannada need a different sp than Devanagari at the same role? | Chunk C type scale | Needs measurement on a real device, not calculation |
+| Type scale (§3.3), the 56dp touch floor (§4) and the 72dp mic (§5) were all sized against English strings — do they hold the longest supported string? | Every farmer layout; gate 5 in `design/prototype/SPEC.md` §5 | Open — the deck review found the chrome fails in Marathi, Tamil and Kannada (§7.2 item 1, mockups only). Reconcile here, then validate on the device floor at max font scale |
 | Target device — what handset are the 200 farmers actually on? | Sunlight contrast validation, frame budget, APK size ceiling | Unknown. Ask the field team; every performance claim in §6 is inference until this is answered |
 | Western Arabic vs native digits (§3.6) | Number formatting, TTS number readback | Decided provisionally, Medium confidence, needs field-team confirmation |
 | Does the dealer counter-mode screen need a mic? | Dealer nav model (§8 says no FAB) | Open — D-05 is a farmer-present interaction, so it may |
