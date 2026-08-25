@@ -53,6 +53,14 @@ Literate, data-dense users. Voice available but not primary; typing is faster fo
 │ Members │ Alerts │ Demand │ More │      mic 48dp, top-right
 ```
 
+**Every label above is sized against English.** The 2026-08-24 deck review found the farmer
+nav labels and the FPO "Demand forecast" tab wrap or truncate in Marathi, Tamil and
+Kannada, and the mic label collides with the nav bar (`design/prototype/SPEC.md` §7.2
+item 1). Mockup findings — the Kotlin nav is built against the longest supported label
+rather than patched after. Principle 2's four-destination rule stands; what is open is the
+label length that fits inside it, reconciled in `design-system.md` §3.4 and §11 under
+gate 5.
+
 ---
 
 ## 3. Shared — pre-login & onboarding
@@ -230,7 +238,9 @@ Every state has a spoken form. English-only failure text is a bug.
 > Unverified. The `minSdk 26` floor. TODO: confirm against India Android version distribution before locking the floor; owner `docs/device-constraints.md`.
 
 - Minimum touch target 56dp for primary actions, 72dp for the mic.
-- Must render correctly at the largest system font scale.
+- Must render correctly at the largest system font scale **and at the longest supported
+  string in every locale**. These are two separate failure modes; the second is open under
+  gate 5 (`design/prototype/SPEC.md` §5), reconciled in `design-system.md` §3.4.
 - Full contrast compliance in both day and night mode.
 - No colour-only signalling — pair with icon or text.
 - Screen-reader labels on everything, in the active language.
