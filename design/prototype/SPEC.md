@@ -63,13 +63,17 @@ screen×state×language is a shareable deep link. Cross-chunk jumps carry the la
 |---|---|---|
 | Palette | deep leaf `#17643B` seeds (`:root` in tokens.css) | indigo `#2F3E9E` seeds (`.role-dealer`) |
 | Semantic tokens | **identical** — severity/confidence/sync never vary by role (design-system §1) | identical |
-| Type floor | ≥16sp, body 18/28 | body 14/22, caption 12/18 |
+| Type floor † | ≥16sp, body 18/28 | body 14/22, caption 12/18 |
 | Radii | 12/20/28dp | 4/8/12dp |
-| Touch | 56dp min, 8dp separation | 48dp min |
-| Nav | bottom nav Home·Crop·(mic)·History·More, labels in local script | top bar + tabs, mic 48dp top-right |
-| Mic | docked centre 72dp from S-06 onward (not pre-login S-01–S-04) | 48dp in app bar |
+| Touch † | 56dp min, 8dp separation | 48dp min |
+| Nav † | bottom nav Home·Crop·(mic)·History·More, labels in local script | top bar + tabs, mic 48dp top-right |
+| Mic † | docked centre 72dp from S-06 onward (not pre-login S-01–S-04) | 48dp in app bar |
 | App bar | role chip in words ("Farmer" localized) on every post-login screen | role chip "Dealer"/"FPO" |
 | Dark | light only (P1) | follows system (prototype renders light) |
+
+**† Pending gate 5 (§5).** These four were sized against English strings. `design-system.md`
+must reconcile them against the longest supported string, so the values may move — §7.2
+item 1. Treat them as the current agreed values, not as settled ones.
 
 Pre-login S-01–S-04: farmer palette, **no** docked mic, no bottom nav (design-system §2.8).
 S-42 overrides everything: white, unbranded, no chrome at all (§2.7).
